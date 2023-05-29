@@ -1,0 +1,2 @@
+class AlibyesController < ApplicationController
+end
