@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   Rails.application.routes.draw do
     resources :alibyes
-    resources :users
     resources :bookings
   end
 end
