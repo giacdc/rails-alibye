@@ -1,7 +1,12 @@
-<h2>Alibyes List</h2>
-    <ul class="list-group">
-      <% @alibyes.each do |alibye| %>
-    <li class="list-group-item"><%= link_to alibye.title, alibye_path(alibye)%></li>
+<div class="container">
+  <h2>Alibyes List</h2>
+  <ul class="list-group">
+    <% @alibyes.each do |alibye| %>
+      <li class="list-group-item">
+        <%= link_to alibye.title, alibye_path(alibye), class: "btn btn-blue" %>
+      </li>
     <% end %>
-    </ul>
+  </ul>
+  <br>
+  <%= link_to "Create a new Alibye", new_alibye_path, class: "btn btn-blue" %>
 </div>
