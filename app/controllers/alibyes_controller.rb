@@ -1,4 +1,6 @@
 class AlibyesController < ApplicationController
+  before_action :set_alibye, only: [:show, :destroy]
+
   def index
     @alibyes = Alibye.all
   end
