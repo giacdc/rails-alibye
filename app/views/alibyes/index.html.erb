@@ -1,0 +1,7 @@
+<h1>My Alibye</h1>
+    <ul class="list-group">
+      <% @alibyes.each do |alibye| %>
+    <li class="list-group-item"><%= link_to alibye.title, alibye_path(alibye)%></li>
+    <% end %>
+    </ul>
+</div>
