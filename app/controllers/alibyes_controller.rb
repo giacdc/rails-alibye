@@ -4,7 +4,7 @@ class AlibyesController < ApplicationController
   end
 
   def show
-    @alibyes = Alibye.find(params[:id])
+    @alibye = Alibye.find(params[:id])
   end
 
   def new

@@ -1,0 +1,13 @@
+<% if @alibye.blank? %>
+<p>There are no alibyes currently in the system.</p>
+<% else %>
+<p>LIST ALL THE ALIBYES</p>
+
+<ul id = "alibye">
+   <% @alibye.each do |c| %>
+   <li><%= link_to c.title, {:action => 'show', :id => c.id} -%></li>
+   <% end %>
+</ul>
+
+<% end %>
+<p><%= link_to "Add new Alibye", {:action => 'new' }%></p>
