@@ -1,4 +1,6 @@
 class AlibyesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @alibyes = Alibye.all
   end
@@ -8,15 +10,17 @@ class AlibyesController < ApplicationController
   end
 
   def new
-    @alibyes = Alibye.new
+    @alibye = Alibye.new
   end
 
   def create
     @alibye = Alibye.new(alibye_params)
+    # raise
+    @alibye.user = current_user
     if @alibye.save
-      redirect_to alibyes_path(@alibye)
+      redirect_to alibye_path(@alibye)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
