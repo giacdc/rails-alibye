@@ -1,13 +1,12 @@
 <% if @alibye.blank? %>
-<p>There are no alibyes currently in the system.</p>
+<p>There are no alibyes available.</p>
 <% else %>
-<p>LIST ALL THE ALIBYES</p>
+<p>ALL THE ALIBYES</p>
 
-<ul id = "alibye">
-   <% @alibye.each do |c| %>
-   <li><%= link_to c.title, {:action => 'show', :id => c.id} -%></li>
-   <% end %>
-</ul>
+<p><%= @alibye.title %></p>
+<p><%= @alibye.category %></p>
+<p><%= @alibye.description %></p>
+<p><%= @alibye.price_per_hour %></p>
 
 <% end %>
-<p><%= link_to "Add new Alibye", {:action => 'new' }%></p>
+<p><%= link_to "Create a new Alibye", {:action => 'new' }%></p>
