@@ -1,12 +1,12 @@
 class AlibyesController < ApplicationController
-  before_action :set_alibye, only: [:show, :destroy]
+  # before_action :set_alibye, only: [:show, :destroy]
 
   def index
     @alibyes = Alibye.all
   end
 
   def show
-    @alibyes = Alibye.find(params[:id])
+    @alibye = Alibye.find(params[:id])
   end
 
   def new
