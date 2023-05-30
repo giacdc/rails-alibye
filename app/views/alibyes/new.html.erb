@@ -1,1 +1,7 @@
-hello
+<%= simple_form_for(@alibye) do |f| %>
+  <%= f.input :title, placeholder:'test' %>
+  <%= f.input :category, :collection => Alibye::CATEGORIES %>
+  <%= f.input :description %>
+  <%= f.input :price_per_hour %>
+  <%= f.submit %>
+<% end %>
