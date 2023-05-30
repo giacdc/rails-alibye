@@ -16,7 +16,7 @@ class AlibyesController < ApplicationController
     if @alibye.save
       redirect_to alibyes_path(@alibye)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
