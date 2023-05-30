@@ -1,12 +1,14 @@
-<% if @alibye.blank? %>
-<p>There are no alibyes available.</p>
-<% else %>
-<p>ALL THE ALIBYES</p>
+<div class="container">
+  <% if @alibye.blank? %>
+  <p>There are no alibyes available.</p>
+  <% else %>
+  <p>ALL THE ALIBYES</p>
 
-<p><%= @alibye.title %></p>
-<p><%= @alibye.category %></p>
-<p><%= @alibye.description %></p>
-<p><%= @alibye.price_per_hour %></p>
+  <p><%= @alibye.title %></p>
+  <p><%= @alibye.category %></p>
+  <p><%= @alibye.description %></p>
+  <p><%= @alibye.price_per_hour %></p>
 
-<% end %>
-<p><%= link_to "Create a new Alibye", {:action => 'new' }%></p>
+  <% end %>
+  <%= link_to "Back to list", alibyes_path, class: "btn btn-orange" %>
+</div>
