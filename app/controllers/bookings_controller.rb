@@ -7,23 +7,24 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @alibye = Alibye.find(params[:alibye_id])
   end
 
   def create
     @alibye = Alibye.find(params[:alibye_id])
     @booking = Booking.new(booking_params)
-    @booking.alibye = @booking
+    @booking.alibye_id = @alibye.id
     @booking.user = current_user
-    @booking.status = "Pending validation"
-    if @booking.start_hour && @booking.checkin_on
-      @booking.value = (@booking.end_hour - @booking.start_hour).to_f * @booking.bed.price.to_f
-    else
-      @booking.value = 0
-    end
+    @booking.state = "Pending validation"
+    # if @booking.start_hour && @booking.checkin_on
+    #   @booking.value = (@booking.end_hour - @booking.start_hour).to_f * @booking.bed.price.to_f
+    # else
+    #   @booking.value = 0
+    # end
     if @booking.save
-      redirect_to alibye_path(@booking)
-    else
       redirect_to alibye_path(@alibye)
+    else
+      render new
     end
   end
 

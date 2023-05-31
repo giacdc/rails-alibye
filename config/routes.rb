@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :alibyes do
     resources :bookings, only: [:new, :create]
   end
+
   resources :bookings, except: [:new, :create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
