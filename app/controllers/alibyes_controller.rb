@@ -1,12 +1,12 @@
 class AlibyesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
+  before_action :set_alibye, only: %i[show edit update destroy]
 
   def index
     @alibyes = Alibye.all
   end
 
   def show
-    @alibye = Alibye.find(params[:id])
   end
 
   def new
@@ -15,7 +15,6 @@ class AlibyesController < ApplicationController
 
   def create
     @alibye = Alibye.new(alibye_params)
-    # raise
     @alibye.user = current_user
     if @alibye.save
       redirect_to alibye_path(@alibye)
@@ -24,9 +23,21 @@ class AlibyesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @alibye.update(alibye_params)
+    if @alibye.save
+      redirect_to alibye_path(@alibye)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @alibye.destroy
-    redirect_to alibyes_path
+    redirect_to alibyes_path, status: :see_other
   end
 
   private
