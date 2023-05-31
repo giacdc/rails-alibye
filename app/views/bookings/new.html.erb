@@ -1,0 +1,9 @@
+<div class="container">
+  <%= simple_form_for(@booking) do |f| %>
+    <%= f.input :start_hour %>
+    <%= f.input :end_hour %>
+    <%= f.submit "Add bookings", :class => "btn btn-blue" %>
+  <% end %>
+  <br>
+  <%= link_to "Back to homepage", alibyes_path, class: "btn btn-orange" %>
+</div>

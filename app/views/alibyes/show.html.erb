@@ -7,7 +7,8 @@
     <p><%= @alibye.description %></p>
     <p><%= @alibye.price_per_hour %></p>
   <% end %>
-  <%= link_to "Back to list", alibyes_path, class: "btn btn-transparent" %>
+  <%= link_to "Book your alibye", new_alibye_booking_path(@alibye), class: "btn btn-blue" %>
   <%= link_to "Edit", edit_alibye_path, class: "btn btn-blue" %>
   <%= link_to "Delete", alibye_path(@alibye), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-orange" %>
+  <br> <br> <%= link_to "Back to list", alibyes_path, class: "btn btn-transparent" %>
 </div>
