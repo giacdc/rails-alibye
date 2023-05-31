@@ -11,9 +11,9 @@ User.destroy_all
 Alibye.destroy_all
 
 alibyes_descriptions = [
-  "I have a poney competition!",
-  "you have a date tonight but want to skip it?",
-  "Family Diner? Boring situation, we cover you",
+  "I have a pony competition!",
+  "You have a date tonight but want to skip it?",
+  "Family Dinner? Boring situation, we cover you",
   "Have an apointement you need to not go? Don't worry",
   "Are you tired about family dinner? How about taking a break this time
     and enjoy your full week-end without taking care about anything?",
