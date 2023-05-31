@@ -2,11 +2,11 @@
   <% @alibyes.each do |alibye| %>
     <div class="card-alibye item">
       <div class="card-alibye-image">
-        <%= image_tag "/assets/images/mafia.jpg"%>
+        <%= image_tag "jump.jpg"%>
       </div>
       <div class="card-alibye-infos">
         <h3><%= alibye.title %></h3>
-        <p class="card-alibye-pricing"><%= alibye.price_per_hour%>€/hour</p>
+        <p><%= alibye.price_per_hour%>€/hour</p>
         <%= link_to "Check this Alibye", alibye_path(alibye), class: "btn btn-blue" %>
       </div>
     </div>

@@ -1,5 +1,11 @@
 <div class="container">
-  <h2>Alibyes List</h2>
+<div class="banner" style="background-image: url(/assets/dab.jpg);">
+    <h2>Alibye <span>is freedom</strong></h2>
+</div>
+<div class="content">
+  <h3>Discover all our Alibyes</h3>
+  <%= link_to "Create a new Alibye", new_alibye_path, class: "btn btn-blue", id: "btn-add" %>
+
   <%# <ul class="list-group">
     <% @alibyes.each do |alibye| %>
       <%# <li class="list-group-item">
@@ -8,6 +14,4 @@
     <% end %>
   <%# </ul> %>
   <%= render partial: "/shared/cards" %>
-  <br>
-  <%= link_to "Create a new Alibye", new_alibye_path, class: "btn btn-blue" %>
 </div>
