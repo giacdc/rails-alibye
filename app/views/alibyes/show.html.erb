@@ -1,13 +1,21 @@
 <div class="container">
   <% if @alibye.blank? %>
-    <p>There are no alibyes available.</p>
+    <p center>This alibye is not available.</p>
   <% else %>
-    <h4><%= @alibye.title %></h4>
-    <p><%= @alibye.category %></p>
-    <p><%= @alibye.description %></p>
-    <p><%= @alibye.price_per_hour %></p>
+  <div class="card-trip">
+  <img src="/assets/banner.jpg"/>
+  <div class="card-trip-infos">
+    <div>
+    <h3><%= @alibye.title %></h3>
+    <p><em><%= @alibye.category %></em></p>
+    <p><h5><%= @alibye.description %></h5></p>
+    </div>
   <% end %>
+  </div>
+  <div class="m-3">
+  <em>Price per hour:</em><h4 class="card-trip-pricing"><%= @alibye.price_per_hour %>€</h4>
   <%= link_to "Back to list", alibyes_path, class: "btn btn-transparent" %>
   <%= link_to "Edit", edit_alibye_path, class: "btn btn-blue" %>
   <%= link_to "Delete", alibye_path(@alibye), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-orange" %>
+  </div>
 </div>
