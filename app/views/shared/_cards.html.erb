@@ -1,0 +1,14 @@
+<div class="flexbox">
+  <% @alibyes.each do |alibye| %>
+    <div class="card-alibye item">
+      <div class="card-alibye-image">
+        <%= image_tag "/assets/images/mafia.jpg"%>
+      </div>
+      <div class="card-alibye-infos">
+        <h3><%= alibye.title %></h3>
+        <p class="card-alibye-pricing"><%= alibye.price_per_hour%>€/hour</p>
+        <%= link_to "Check this Alibye", alibye_path(alibye), class: "btn btn-blue" %>
+      </div>
+    </div>
+  <% end %>
+</div>

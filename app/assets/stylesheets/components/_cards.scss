@@ -1,0 +1,39 @@
+.flexbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.item {
+  flex-grow: 1;
+  margin: 20px 20px;
+  width: 300px;
+}
+
+.card-alibye{
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  &:h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    color: $gray;
+  }
+
+  &:p {
+    font-size: 16px;
+    opacity: .7;
+    margin: 0;
+    color: $light-gray;
+  }
+}
+
+.card-alibye-image{
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
