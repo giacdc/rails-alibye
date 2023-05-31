@@ -5,12 +5,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
-  def create
-    @bookings = Booking.create
+  def new
+    @booking = Booking.new
   end
 
   def create
-    @alibye = Alibye.find(params[:alibye])
+    @alibye = Alibye.find(params[:alibye_id])
     @booking = Booking.new(booking_params)
     @booking.alibye = @booking
     @booking.user = current_user
@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
       @booking.value = (@booking.end_hour - @booking.start_hour).to_f * @booking.bed.price.to_f
     else
       @booking.value = 0
+    end
     if @booking.save
       redirect_to alibye_path(@booking)
     else
@@ -41,3 +42,4 @@ class BookingsController < ApplicationController
   def set_booking
     @booking = Booking.find(params[:user_id])
   end
+end
