@@ -23,14 +23,18 @@ alibyes_descriptions = [
 alibyes_titles = [
   "Lost wifi", "Training for marathon next year",
   "Summer body", "Football game", "Hangover", "Food poisoning", "Covid",
-  "Just broke-up", "Lost my phone", "Missed the alarm"
+  "Just broke-up", "Lost my phone", "Missed the alarm", "Broke with my cat"
 ]
 
 category = Alibye::CATEGORIES
 
 puts "Creating users..."
+puts "Created users.."
+
 User.create(email: "123@123.com", password: "123456")
 User.create(email: "abc@abc.com", password: "123456")
+User.create(email: "ade@ade.com", password: "123456")
+User.create(email: "lau@lau.com", password: "123456")
 
 puts "creating random alibyes"
 
@@ -38,16 +42,13 @@ puts "creating random alibyes"
   Alibye.create!(
     title: alibyes_titles.sample,
     category: category.sample,
-    user: User.last,
+    user: User.all.sample,
     price_per_hour: rand(1..500),
     description: alibyes_descriptions.sample
   )
-
   puts "created Alibye"
 end
 
 Alibye.all.each do |alibye|
   puts "Created #{alibye.title}"
 end
-
-puts "Finished!"
