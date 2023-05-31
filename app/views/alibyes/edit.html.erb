@@ -1,5 +1,6 @@
 <div class="container">
   <%= render "form", alibye: @alibye %>
   <br>
+  <%= link_to "Back to Alibye", alibye_path(@alibye) , class: "btn btn-orange" %>
   <%= link_to "Back to list", alibyes_path , class: "btn btn-transparent" %>
 </div>
