@@ -1,5 +1,9 @@
 
   <div class="container">
+    <% if @booking.blank? %>
+    <div class="container text-center">
+<h3 center> There are no bookings yet! 😥  </h3>
+  <% else %>
   <div class="row">
   <% @bookings.each do |booking| %>
     <div class="col">
@@ -17,6 +21,8 @@
       </div>
       </div>
     </div>
+    </div>
+<% end %>
 <% end %>
 </div>
 </div>
