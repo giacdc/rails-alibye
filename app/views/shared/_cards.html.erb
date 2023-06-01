@@ -2,7 +2,7 @@
   <% @alibyes.each do |alibye| %>
     <div class="card-item">
       <div class="card-image">
-        <%= image_tag "jump.jpg"%>
+        <%= cl_image_tag alibye.photo.key, crop: :fill %>
       </div>
       <div class="card-infos">
         <div class="card-title">

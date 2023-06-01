@@ -1,9 +1,17 @@
+<div>
+  <%= link_to alibyes_path do %>
+    <div>
+    <p class="btn-back"><i class="fa-solid fa-chevron-left" style="color: #31393c; font-size: 22px"></i>  Back to the list</p>
+    </div>
+  <% end %>
+</div>
+
 <div class="container">
   <% if @alibye.blank? %>
     <p center>This alibye is not available.</p>
   <% else %>
   <div class="card-trip">
-  <img src=<%= image_path "banner.jpg" %>/>
+  <%= cl_image_tag @alibye.photo.key, height: 600, width: 800, crop: :fill %>
   <div class="card-trip-infos">
     <div>
     <h3><%= @alibye.title %></h3>
@@ -20,7 +28,6 @@
   <%= link_to "Delete", alibye_path(@alibye), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-orange" %>
   <br>
   <br>
-  <%= link_to "Back to list", alibyes_path, class: "btn btn-transparent" %>
   </div>
 
 </div>
