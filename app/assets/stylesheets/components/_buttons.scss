@@ -11,6 +11,19 @@
   }
 }
 
+.btn-light-blue {
+  color: $white;
+  padding: 18px 24px;
+  border-radius: 50px;
+  background: $light-blue;
+  transition: background 0.3s ease;
+
+  &:hover {
+    color: $white;
+    background: $blue;
+  }
+}
+
 .btn-orange {
   color: $white;
   padding: 18px 24px;
@@ -38,6 +51,20 @@
     background-color: transparent;
     border: 1px solid $gray;
     color: $gray;
+    opacity: 1;
+  }
+}
+
+.btn-back {
+  color: $gray;
+  background-color: transparent;
+  padding: 18px 24px;
+  font-weight: lighter;
+  font-size: 22px;
+
+  &:hover {
+    background-color: transparent;
+    text-decoration: underline;
     opacity: 1;
   }
 }
