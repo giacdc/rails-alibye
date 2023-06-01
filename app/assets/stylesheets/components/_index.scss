@@ -5,6 +5,10 @@
 @import "navbar";
 @import "banner";
 
+a{
+  text-decoration: none;
+}
+
 .banner{
   h2{
     color: $blue;
