@@ -1,17 +1,18 @@
 <div class="container">
-<div class="banner" style="background-image: url(<%= image_path "dab.jpg" %>);">
-    <h2>Alibye <span>is freedom</strong></h2>
-</div>
-<div class="content">
-  <h3>Discover all our Alibyes</h3>
-  <%= link_to "Create a new Alibye", new_alibye_path, class: "btn btn-blue", id: "btn-add" %>
-
-  <%# <ul class="list-group">
-    <% @alibyes.each do |alibye| %>
-      <%# <li class="list-group-item">
-        <%= link_to alibye.title, alibye_path(alibye), class: "btn btn-blue" %>
-      <%# </li>
+  <div class="banner" style="background-image: url(<%= image_path "dab.jpg" %>);">
+      <h2>Alibye <span>is freedom</strong></h2>
+  </div>
+  <div class="content">
+  <div>
+    <%= link_to alibyes_path do %>
+      <div>
+      <p class="btn-back"><i class="fa-solid fa-chevron-left" style="color: #31393c; font-size: 22px"></i>  Back to the list</p>
+      </div>
     <% end %>
-  <%# </ul> %>
-  <%= render partial: "/shared/cards" %>
+  </div>
+
+    <h3>Discover all our Alibyes</h3>
+    <%= link_to "Create a new Alibye", new_alibye_path, class: "btn btn-blue", id: "btn-add" %>
+    <%= render partial: "/shared/cards" %>
+  </div>
 </div>
