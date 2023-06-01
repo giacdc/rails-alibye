@@ -1,20 +1,22 @@
 
-  <div class="card-body">
-    <h1 class="card-title">My booked Alibyes</h1>
+  <div class="container">
+  <div class="row">
+  <% @bookings.each do |booking| %>
+    <div class="col">
+    <div class="card" style="width: 18rem;">
+      <%# <img src="..." class="card-img-top" alt="..."> %>
+      <div class="card-body">
+        <h5 class="card-title"><strong><%= booking.alibye.title %></strong></h5>
+        <p class="card-text">Description: <%= booking.alibye.description %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><p>Total price: <strong><%= booking.total_price %> €</strong></p></li>
+      </ul>
+      <div class="card-body">
+        <%= link_to "Delete this booking", booking_path(booking), method: :delete, class:"card-link", data: {confirm: "Are you sure"} %>
+      </div>
+      </div>
+    </div>
+<% end %>
 </div>
-     <% @bookings.each do |booking| %>
-     <br>
-          <div class='product-body'>
-            <h2><%= booking.alibye.title %></h2>
-            <%# <p>Alibye Title: <strong><%= booking.alibye.title %></strong></p>
-            <p>Description: <strong><%= booking.alibye.description %></strong></p>
-            <p>Total price: <strong><%= booking.total_price %> €</strong></p>
-          </div>
-          <div>
-            <ul class="list-unstyled hidden-sm hidden-xs padded">
-              <li><strong></strong></li>
-              <li class="text-right"><%= link_to "Delete this booking", booking_path(booking), method: :delete, class:"btn btn-default", data: {confirm: "Are you sure"} %></li>
-            </ul>
-          </div>
-        </li>
-     <% end %>
+</div>
