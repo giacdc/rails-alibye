@@ -1,0 +1,28 @@
+
+  <div class="container">
+    <% if @booking.blank? %>
+    <div class="container text-center">
+<h3 center> There are no bookings yet! 😥  </h3>
+  <% else %>
+  <div class="row">
+  <% @bookings.each do |booking| %>
+    <div class="col">
+    <div class="card" style="width: 18rem;">
+      <%# <img src="..." class="card-img-top" alt="..."> %>
+      <div class="card-body">
+        <h5 class="card-title"><strong><%= booking.alibye.title %></strong></h5>
+        <p class="card-text">Description: <%= booking.alibye.description %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><p>Total price: <strong><%= booking.total_price %> €</strong></p></li>
+      </ul>
+      <div class="card-body">
+        <%= link_to "Delete this booking", booking_path(booking), method: :delete, class:"card-link", data: {confirm: "Are you sure"} %>
+      </div>
+      </div>
+    </div>
+    </div>
+<% end %>
+<% end %>
+</div>
+</div>

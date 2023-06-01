@@ -14,11 +14,7 @@ class BookingsController < ApplicationController
     @booking.alibye_id = @alibye.id
     @booking.user = current_user
     @booking.state = "Pending validation"
-    # if @booking.start_hour && @booking.checkin_on
-    #   @booking.value = (@booking.end_hour - @booking.start_hour).to_f * @booking.bed.price.to_f
-    # else
-    #   @booking.value = 0
-    # end
+    @booking.total_price = @alibye.price_per_hour * ((@booking.end_hour - @booking.start_hour)/3600)
     if @booking.save
       redirect_to alibye_path(@alibye)
     else
