@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
+  before_action :set_alibye, only: %i[new create]
 
   def index
     @bookings = Booking.where(user_id: current_user.id)
-    @booking = Booking.new
   end
 
   def new
@@ -10,20 +10,19 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @alibye = Alibye.find(params[:alibye_id])
     @booking = Booking.new(booking_params)
-    @booking.alibye = @booking
+    @booking.alibye_id = @alibye.id
     @booking.user = current_user
-    @booking.status = "Pending validation"
-    if @booking.start_hour && @booking.checkin_on
-      @booking.value = (@booking.end_hour - @booking.start_hour).to_f * @booking.bed.price.to_f
-    else
-      @booking.value = 0
-    end
+    @booking.state = "Pending validation"
+    # if @booking.start_hour && @booking.checkin_on
+    #   @booking.value = (@booking.end_hour - @booking.start_hour).to_f * @booking.bed.price.to_f
+    # else
+    #   @booking.value = 0
+    # end
     if @booking.save
-      redirect_to alibye_path(@booking)
-    else
       redirect_to alibye_path(@alibye)
+    else
+      render new
     end
   end
 
@@ -41,5 +40,9 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:user_id])
+  end
+
+  def set_alibye
+    @alibye = Alibye.find(params[:alibye_id])
   end
 end
