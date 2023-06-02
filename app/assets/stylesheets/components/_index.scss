@@ -27,16 +27,22 @@ a{
   margin: 15px 0;
 }
 
+.grid{
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+
+  h3{
+    color: $gray;
+    font-size: 45px;
+    font-weight: bold;
+  }
+}
+
 #btn-add{
   display: block;
   margin-left: auto;
   margin-right: 0;
   width: 250px;
-}
-
-h3{
-  margin-top: 3rem;
-  color: $gray;
-  font-size: 45px;
-  font-weight: bold;
 }
