@@ -21,8 +21,8 @@
   <% end %>
 
   </div>
-  <div class="m-3">
-  <em>Price per hour:</em><h4 class="card-trip-pricing"><%= @alibye.price_per_hour %>€</h4>
+  <div class="m-3 ">
+  <em class="text-end">Price per hour:</em><h4 class="card-trip-pricing" class="text-end"><%= @alibye.price_per_hour %>€</h4>
   <%= link_to "Book this Alibye", new_alibye_booking_path(@alibye), class: "btn btn-blue" %>
   <%= link_to "Edit", edit_alibye_path, class: "btn btn-blue" %>
   <%= link_to "Delete", alibye_path(@alibye), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-orange" %>
