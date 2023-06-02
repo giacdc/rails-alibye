@@ -47,7 +47,7 @@ class AlibyesController < ApplicationController
     @alibye = Alibye.find(params[:id])
   end
 
-  def alibye_paramsa
+  def alibye_params
     params.require(:alibye).permit(:title, :category, :user_id, :photo, :price_per_hour, :description)
   end
 end
