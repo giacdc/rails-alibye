@@ -9,4 +9,8 @@ class Alibye < ApplicationRecord
     in: CATEGORIES,
     message: "%{value} is not a valid size"
   }, allow_nil: true
+  include PgSearch::Model
+  pg_search_scope :search_by_title_and_description, against: %i[title description], using: {
+    tsearch: { prefix: true }
+  }
 end

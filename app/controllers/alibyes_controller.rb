@@ -4,6 +4,7 @@ class AlibyesController < ApplicationController
 
   def index
     @alibyes = Alibye.all
+    @alibyes = Alibye.search_by_title_and_description(params[:query]) if params[:query].present?
   end
 
   def show
