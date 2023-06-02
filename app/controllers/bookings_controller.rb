@@ -15,9 +15,13 @@ class BookingsController < ApplicationController
     @booking.alibye_id = @alibye.id
     @booking.user = current_user
     @booking.state = "Pending validation"
-    @booking.total_price = @alibye.price_per_hour * ((@booking.end_hour - @booking.start_hour)/3600)
+    years_elapsed = @booking.end_date.year - @booking.start_date.year
+    days_elapsed = @booking.end_date.day - @booking.start_date.day
+    hours_elapsed = @booking.end_date.hour - @booking.start_date.hour
+    time_elapsed = hours_elapsed + days_elapsed * 24 + years_elapsed *365
+    @booking.total_price = @alibye.price_per_hour * time_elapsed
     if @booking.save
-      redirect_to alibye_path(@alibye)
+      redirect_to bookings_path
     else
       render new
     end
@@ -25,13 +29,13 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to root_path
+    redirect_to bookings_path
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:user_id, :alibye_id, :state, :start_hour, :end_hour, :total_price)
+    params.require(:booking).permit(:user_id, :alibye_id, :state, :start_date, :end_date, :total_price)
   end
 
   def set_booking
