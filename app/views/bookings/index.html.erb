@@ -4,7 +4,9 @@
     <h3 center> There are no bookings yet! 😥  </h3>
 </div>
 <% else %>
-  <div class="container">
+<br>
+  <div class="text-center"> <h1> All my bookings </h1>
+  <br>
     <div class="row">
       <% @bookings.each do |booking| %>
         <div class="col">
@@ -18,7 +20,7 @@
               <li class="list-group-item"><p>Total price: <strong><%= booking.total_price %> €</strong></p></li>
             </ul>
             <div class="card-body">
-              <%= link_to "Delete this booking", booking_path(booking), method: :delete, class:"card-link", data: {confirm: "Are you sure"} %>
+              <%= link_to "Delete this booking", booking_path(booking), class:"card-link", data: {turbo_method: :delete, turbo_confirm: 'Really ? 😱'} %>
             </div>
           </div>
         </div>
