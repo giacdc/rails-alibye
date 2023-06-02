@@ -28,3 +28,13 @@
   text-decoration: none;
 }
 
+.active {
+  color: $blue !important;
+  border-bottom: 2px solid;
+  padding-bottom: 10px;
+}
+
+.nav-link:hover {
+  border-bottom: 2px solid;
+  padding-bottom: 10px;
+}

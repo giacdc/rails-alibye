@@ -14,23 +14,21 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <!--li class="nav-item active"-->
-          <li class="nav-item">
+          <!--li class="nav-item">
             <%= link_to "Home", root_path, class: "nav-link me-3" %>
+          </li-->
+          <li class="nav-item">
+            <%= link_to "Alibyes", alibyes_path, class: current_page?(alibyes_path) ? "nav-link me-3 active" : "nav-link me-3" %>
+            <!--%= link_to "Alibyes", alibyes_path, class: "nav-link me-3" %-->
           </li>
           <li class="nav-item">
-            <%= link_to "Alibyes", alibyes_path, class: "nav-link me-3" %>
+            <%= link_to "My bookings", bookings_path, class: current_page?(bookings_path) ? "nav-link me-3 active" : "nav-link me-3" %>
           </li>
           <li class="nav-item">
-            <%= link_to "My bookings", bookings_path, class: "nav-link me-3" %>
+            <%= link_to "Log out", destroy_user_session_path, class: "nav-link me-3", data: {turbo_method: :delete} %>
           </li>
-          <li class="nav-item dropdown ps-3">
+          <li class="nav-item ps-3">
             <%= image_tag "avatarnew.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%#= link_to "Action", "#", class: "dropdown-item" %>
-              <%#= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "My Bookings", alibyes_path, class: "dropdown-item" %>
-             <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
           </li>
         <% else %>
           <li class="nav-item">
