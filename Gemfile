@@ -29,10 +29,7 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-gem "dotenv-rails", groups: [:development, :test]
-
 gem "cloudinary"
-
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -59,6 +56,7 @@ gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "pg_search"
+gem 'flatpickr'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

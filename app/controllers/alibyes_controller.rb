@@ -8,6 +8,7 @@ class AlibyesController < ApplicationController
   end
 
   def show
+    params[:page] = "show"
   end
 
   def new
