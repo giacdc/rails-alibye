@@ -58,7 +58,7 @@
 .btn-back {
   color: $gray;
   background-color: transparent;
-  padding: 18px 24px;
+  padding: 18px 40px;
   font-weight: lighter;
   font-size: 22px;
 
@@ -88,6 +88,22 @@
   &:hover {
     color: $light-blue;
     background-color: transparent;
+    text-decoration: underline;
+    opacity: 1;
+  }
+}
+
+.btn-edit-delete {
+  i{
+    font-size: 20px;
+  }
+
+  p{
+    font-size: 20px;
+    color: $gray;
+  }
+
+  :hover {
     text-decoration: underline;
     opacity: 1;
   }
