@@ -68,3 +68,27 @@
     opacity: 1;
   }
 }
+
+.btn-add {
+  color: $blue;
+  background-color: transparent;
+  padding: 18px 24px;
+  font-weight: lighter;
+  font-size: 22px;
+
+  span {
+    padding-left: 13px;
+    font-size: 24px;
+  }
+
+  .fa-solid {
+    vertical-align: middle;
+  }
+
+  &:hover {
+    color: $light-blue;
+    background-color: transparent;
+    text-decoration: underline;
+    opacity: 1;
+  }
+}
