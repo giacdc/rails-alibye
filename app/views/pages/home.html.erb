@@ -5,10 +5,10 @@
       <div class="card-item">
         <div>
           <div class="card-image">
-            <% if @alibye.photo.attached? %>
-              <%= cl_image_tag @alibye.photo.key, height: 600, width: 800, crop: :fill %>
+            <% if alibye.photo.attached? %>
+              <%= cl_image_tag alibye.photo.key %>
             <% else %>
-              <%= image_tag "jumping.jpg", style: 'height:600px;width:800px;' %>
+              <%= image_tag "jumping.jpg" %>
             <% end %>
           </div>
           <div class="card-infos">
