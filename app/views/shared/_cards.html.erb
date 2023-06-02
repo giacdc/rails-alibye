@@ -1,9 +1,13 @@
 <div class="cards">
-  <% if @alibyes.any? %>
-    <% @alibyes.each do |alibye| %>
+  <% if alibyes.any? %>
+    <% alibyes.each do |alibye| %>
       <div class="card-item">
         <div class="card-image">
-          <%= cl_image_tag alibye.photo.key, crop: :fill %>
+          <% if alibye.photo.attached? %>
+            <%= cl_image_tag alibye.photo.key %>
+          <% else %>
+            <%= image_tag "jumping.jpg" %>
+          <% end %>
         </div>
         <div class="card-infos">
           <div class="card-title">
