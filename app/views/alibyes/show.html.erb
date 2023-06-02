@@ -4,7 +4,6 @@
       <p class="btn-back"><i class="fa-solid fa-chevron-left" style="color: #31393c; font-size: 22px"></i>  Back to the list</p>
     </div>
   <% end %>
-</div>
 
 <div class="container">
   <% if @alibye.blank? %>
@@ -12,23 +11,27 @@
   <% else %>
     <div class="card-trip">
       <% if @alibye.photo.attached? %>
-        <%= cl_image_tag @alibye.photo.key, height: 600, width: 800, crop: :fill %>
+        <%= cl_image_tag @alibye.photo.key %>
       <% else %>
-        <%= image_tag "jumping.jpg", style: 'height:600px;width:800px;' %>
+        <%= image_tag "jumping.jpg" %>
       <% end %>
-    </div>
     <div class="card-trip-infos">
       <h3><%= @alibye.title %></h3>
-      <p><em><%= @alibye.category %></em></p>
+      <br>
       <p><h5><%= @alibye.description %></h5></p>
-    </div>
+  <br>
+  <br>
   <% end %>
-  <div class="m-3">
-    <em>Price per hour:</em><h4 class="card-trip-pricing"><%= @alibye.price_per_hour %>€</h4>
-    <%= link_to "Book this Alibye", new_alibye_booking_path(@alibye), class: "btn btn-blue" %>
-    <%= link_to "Edit", edit_alibye_path, class: "btn btn-blue" %>
-    <%= link_to "Delete", alibye_path(@alibye), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-orange" %>
-    <br>
-    <br>
+  <div class="card-trip-pricing m-3">
+    <p><em><%= @alibye.category %></em></p>
+    <em>Price per hour:</em><h4><%= @alibye.price_per_hour %>€</h4>
+    </div>
+    <div class="d-flex justify-content-left mb-3"><%= link_to "Book this Alibye", new_alibye_booking_path(@alibye), class: "btn btn-blue" %>
+    <%= link_to "Edit", edit_alibye_path, class: "btn btn-transparent" %>
+    <%= link_to "Delete", alibye_path(@alibye), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-transparent" %>
+    </div>
+    </div>
   </div>
+</div>
+
 </div>
