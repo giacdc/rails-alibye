@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_alibye, only: %i[new create]
+  before_action :set_booking, only: %i[destroy]
 
   def index
     @bookings = Booking.where(user_id: current_user.id)
@@ -23,7 +24,6 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    set_booking
     @booking.destroy
     redirect_to root_path
   end
@@ -35,7 +35,7 @@ class BookingsController < ApplicationController
   end
 
   def set_booking
-    @booking = Booking.find(params[:user_id])
+    @booking = Booking.find(params[:id])
   end
 
   def set_alibye
