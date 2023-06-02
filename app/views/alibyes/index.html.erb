@@ -3,9 +3,6 @@
       <h2>Alibye<span>is freedom</strong></h2>
   </div>
   <div class="content">
-
-    <h3>Discover all our Alibyes</h3>
-    <%= link_to "Create a new Alibye", new_alibye_path, class: "btn btn-blue", id: "btn-add" %>
     <div class="row justify-content-center">
       <div class="col-sm-8 my-3">
         <%= form_with url: alibyes_path, method: :get, class: "d-flex" do %>
@@ -18,7 +15,14 @@
         <% end %>
       </div>
     </div>
-
+    <div class ="grid">
+      <h3>Discover all our Alibyes</h3>
+      <div class="d-flex justify-content-end">
+        <%= link_to alibyes_path do %>
+            <p class="btn-add align-self-center"><i class="fa-solid fa-circle-plus" style="color: #2176ff;"></i><span class ="align-middle">New Alibye</span></p>
+        <% end %>
+      </div>
+    </div>
     <%= render partial: "/shared/cards", locals: {alibyes: @alibyes} %>
   </div>
 </div>
