@@ -5,33 +5,38 @@
     </div>
   <% end %>
 
-<div class="container">
-  <% if @alibye.blank? %>
-    <p center>This alibye is not available.</p>
-  <% else %>
+  <div class="container">
+    <% if @alibye.blank? %>
+      <p center>This alibye is not available.</p>
+    <% else %>
     <div class="card-trip">
       <% if @alibye.photo.attached? %>
         <%= cl_image_tag @alibye.photo.key %>
       <% else %>
         <%= image_tag "jumping.jpg" %>
       <% end %>
-    <div class="card-trip-infos">
-      <h3><%= @alibye.title %></h3>
-      <br>
-      <p><h5><%= @alibye.description %></h5></p>
-  <br>
-  <br>
-  <% end %>
-  <div class="card-trip-pricing m-3">
-    <p><em><%= @alibye.category %></em></p>
-    <em>Price per hour:</em><h4><%= @alibye.price_per_hour %>€</h4>
+      <div class="card-trip-infos">
+        <h3><%= @alibye.title %></h3>
+        <p id="alibye-category"><%= @alibye.category %></p>
+        <br>
+        <p><h5><%= @alibye.description %></h5></p>
+        <br>
+        <br>
+        <% end %>
+        <div class="card-trip-pricing m-3">
+          <em>Price per hour:</em><h4><%= @alibye.price_per_hour %>€</h4>
+        </div>
+        <div class="d-flex justify-content-center mb-3">
+          <%= link_to "Book this Alibye", new_alibye_booking_path(@alibye), class: "btn btn-blue" %>
+        </div>
+      </div>
     </div>
-    <div class="d-flex justify-content-left mb-3"><%= link_to "Book this Alibye", new_alibye_booking_path(@alibye), class: "btn btn-blue" %>
-    <%= link_to "Edit", edit_alibye_path, class: "btn btn-transparent" %>
-    <%= link_to "Delete", alibye_path(@alibye), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-transparent" %>
+    <div class="d-flex justify-content-end my-3 btn-edit-delete">
+        <%= link_to edit_alibye_path do %>
+            <p class="btn-edit align-self-center p-3"><i class="fa-regular fa-pen-to-square" style="color: #31393c;"></i><span class ="align-middle">   Edit</span></p>
+        <% end %>
+        <%= link_to alibye_path(@alibye), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+            <p class="btn-edit align-self-center p-3"><i class="fa-regular fa-trash-can" style="color: #31393c;"></i><span class ="align-middle">   Delete</span></p>
+        <% end %>
     </div>
-    </div>
-  </div>
-</div>
-
 </div>

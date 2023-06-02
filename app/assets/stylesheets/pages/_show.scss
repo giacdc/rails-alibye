@@ -1,10 +1,15 @@
 .card-trip {
+  border-radius: 15px;
+  padding: 40px 20px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: grid;
-  grid-template-columns: 1.7fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+
   img{
+    border-radius: 15px;
     object-fit: cover;
     object-position: center;
   }
@@ -12,14 +17,14 @@
 
 h3{
   padding-top: 25px;
-  color: $gray;
+  color: $light-blue;
   font-size: 45px;
   font-weight: bold;
 }
 
 .card-trip > img {
   height: 100%;
-  width: 800px;
+  width: 700px;
   object-fit: cover;
 }
 
@@ -47,6 +52,10 @@ h3{
   }
 }
 
+.card-trip-infos {
+  padding: 0px 10px;
+}
+
 .card-trip-infos .card-trip-user {
   position: absolute;
   right: 16px;
@@ -62,4 +71,11 @@ h3{
 .image-cover {
   object-fit: cover;
   object-position: right top;
+}
+
+#alibye-category {
+  font-size: 18px;
+  font-style: italic;
+  color:$gray;
+  font-weight: lighter;
 }
