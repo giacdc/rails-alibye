@@ -1,20 +1,28 @@
 <div class="cards">
-  <% @alibyes.each do |alibye| %>
-    <div class="card-item">
-      <div class="card-image">
-        <%= cl_image_tag alibye.photo.key, crop: :fill %>
-      </div>
-      <div class="card-infos">
-        <div class="card-title">
-          <h3 id="title"><%= alibye.title %></h3>
+  <% if @alibyes.any? %>
+    <% @alibyes.each do |alibye| %>
+      <div class="card-item">
+        <div class="card-image">
+          <%= cl_image_tag alibye.photo.key, crop: :fill %>
         </div>
-          <div class="card-price">
-            <p id="price"><%= alibye.price_per_hour%>€/hour</p>
+        <div class="card-infos">
+          <div class="card-title">
+            <h3 id="title"><%= alibye.title %></h3>
+        </div>
+        <div class="card-infos">
+          <div class="card-title">
+            <h3 id="title"><%= alibye.title %></h3>
           </div>
-          <div class="card-button">
-            <%= link_to "Check this Alibye", alibye_path(alibye), class: "btn-blue" %>
-          </div>
+            <div class="card-price">
+              <p id="price"><%= alibye.price_per_hour%>€/hour</p>
+            </div>
+            <div class="card-button">
+              <%= link_to "Check this Alibye", alibye_path(alibye), class: "btn-blue" %>
+            </div>
+        </div>
       </div>
-    </div>
+    <% end %>
+  <% else %>
+    <em>Sorry, no Alibyes found.</em>
   <% end %>
 </div>
