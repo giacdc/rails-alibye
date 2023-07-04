@@ -1,9 +1,16 @@
 .btn-blue {
   color: $white;
-  padding: 18px 24px;
+  padding: 12px 22px;
   border-radius: 50px;
   background: $blue;
   transition: background 0.3s ease;
+  min-width: 6.5rem;
+  max-width: fit-content;
+  max-height: 3.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
 
   &:hover {
     color: $white;
